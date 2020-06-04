@@ -69,18 +69,18 @@ var initDb = function(callback) {
     dbDetails.url = mongoURLLabel;
     dbDetails.type = 'MongoDB';
 
+    // Creating a student collection
+    var col = db.collection('students');
+
+    // Insert some students
+    col.insert({name: "Jack", school: "HEIG-VD"});
+    col.insert({name: "John", school: "HES-SO"});
+    col.insert({name: "Luis", school: "HES-SO"});
+    col.insert({name: "Elise", school: "HEIG-VD"});
+    col.insert({name: "Marie", school: "HEIG-VD"});
+
     console.log('Connected to MongoDB at: %s', mongoURL);
   });
-
-  // Creating a student collection
-  var col = db.collection('students');
-
-  // Insert some students
-  col.insert({name: "Jack", school: "HEIG-VD"});
-  col.insert({name: "John", school: "HES-SO"});
-  col.insert({name: "Luis", school: "HES-SO"});
-  col.insert({name: "Elise", school: "HEIG-VD"});
-  col.insert({name: "Marie", school: "HEIG-VD"});
 };
 
 app.get('/', function (req, res) {
