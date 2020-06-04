@@ -105,7 +105,8 @@ app.get('/', function (req, res) {
     });
   } else {
     res.render('index.html', { pageCountMessage : null});
-  }*/
+    */
+  }
 
 });
 
