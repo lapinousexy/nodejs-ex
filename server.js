@@ -106,8 +106,10 @@ app.get('/', function (req, res) {
   } else {
     res.render('index.html', { pageCountMessage : null});
     */
+  } else {
+    res.render('index.html', { pageCountMessage : null});
   }
-  res.render('index.html', { pageCountMessage : null});
+  
 });
 
 app.get('/pagecount', function (req, res) {
