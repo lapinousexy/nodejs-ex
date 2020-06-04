@@ -71,6 +71,16 @@ var initDb = function(callback) {
 
     console.log('Connected to MongoDB at: %s', mongoURL);
   });
+
+  // Creating a student collection
+  var col = db.collection('students');
+
+  // Insert some students
+  col.insert({name: "Jack", school: "HEIG-VD"});
+  col.insert({name: "John", school: "HES-SO"});
+  col.insert({name: "Luis", school: "HES-SO"});
+  col.insert({name: "Elise", school: "HEIG-VD"});
+  col.insert({name: "Marie", school: "HEIG-VD"});
 };
 
 app.get('/', function (req, res) {
@@ -80,15 +90,6 @@ app.get('/', function (req, res) {
     initDb(function(err){});
   }
   if (db) {
-    // Creating a student collection
-    var col = db.collection('students');
-
-    // Insert some students
-    col.insert({name: "Jack", school: "HEIG-VD"});
-    col.insert({name: "John", school: "HES-SO"});
-    col.insert({name: "Luis", school: "HES-SO"});
-    col.insert({name: "Elise", school: "HEIG-VD"});
-    col.insert({name: "Marie", school: "HEIG-VD"});
 
     col.find({}).toArray(function(err, result) {
       if (err) throw err;
