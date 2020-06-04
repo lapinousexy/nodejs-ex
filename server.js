@@ -90,7 +90,8 @@ app.get('/', function (req, res) {
     initDb(function(err){});
   }
   if (db) {
-
+    var col = db.collection('students');
+    
     col.find({}).toArray(function(err, result) {
       if (err) throw err;
 
