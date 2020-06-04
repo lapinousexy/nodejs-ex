@@ -80,9 +80,23 @@ app.get('/', function (req, res) {
     initDb(function(err){});
   }
   if (db) {
-    var col = db.collection('counts');
-    // Create a document with request IP and current time of request
-    col.insert({ip: req.ip, date: Date.now()});
+    // Creating a student collection
+    var col = db.collection('students');
+
+    // Insert some students
+    col.insert({name: "Jack", school: "HEIG-VD"});
+    col.insert({name: "John", school: "HES-SO"});
+    col.insert({name: "Luis", school: "HES-SO"});
+    col.insert({name: "Elise", school: "HEIG-VD"});
+    col.insert({name: "Marie", school: "HEIG-VD"});
+
+    col.find({}).toArray(function(err, result) {
+      if (err) throw err;
+
+      res.render('index.html', { pageCountMessage : result });
+    });
+
+    /*
     col.count(function(err, count){
       if (err) {
         console.log('Error running count. Message:\n'+err);
@@ -91,7 +105,8 @@ app.get('/', function (req, res) {
     });
   } else {
     res.render('index.html', { pageCountMessage : null});
-  }
+  }*/
+
 });
 
 app.get('/pagecount', function (req, res) {
