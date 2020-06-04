@@ -69,6 +69,7 @@ var initDb = function(callback) {
     dbDetails.url = mongoURLLabel;
     dbDetails.type = 'MongoDB';
 
+    /*
     // Creating a student collection
     var col = db.collection('students');
 
@@ -78,6 +79,7 @@ var initDb = function(callback) {
     col.insert({name: "Luis", school: "HES-SO"});
     col.insert({name: "Elise", school: "HEIG-VD"});
     col.insert({name: "Marie", school: "HEIG-VD"});
+    */
 
     console.log('Connected to MongoDB at: %s', mongoURL);
   });
@@ -91,7 +93,7 @@ app.get('/', function (req, res) {
   }
   if (db) {
     var col = db.collection('students');
-    
+
     col.find({}).toArray(function(err, result) {
       if (err) throw err;
 

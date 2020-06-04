@@ -222,28 +222,42 @@ pre {
 <body>
 
 <section class='container'>
-          <hgroup>
-            <h1>Welcome to CLD demo on OpenShift</h1>
-          </hgroup>
+  <hgroup>
+    <h1>Welcome to CLD demo on OpenShift</h1>
+  </hgroup>
 
-                <h2>Request information</h2>
-                <% if (pageCountMessage) { %>
-                    <% for(var i=0; i < pageCountMessage.length; i++) {%>
-                      <li><%= pageCountMessage[i].name %></li>
-                <% } } else { %>
-                   <span class="code" id="count-value">No database configured</span>
-                   </p>
-                <%} %>
-          </section>
-        </div>
-        
-        <div class="alert alert-primary" role="alert">
-          A simple primary alert—check it out!
-        </div>
-
-        <footer>
-          <div class="logo"><a href="https://www.openshift.com/"></a></div>
-        </footer>
+  <h2>Student information</h2>        
 </section>
+
+<section class="col-xs-12 col-sm-6 col-md-6">
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Name</th>
+        <th scope="col">School</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% if (pageCountMessage) { %>
+        <% for(var i=0; i < pageCountMessage.length; i++) {%>
+          <tr>
+            <th scope="row">i</th>
+            <td><%= pageCountMessage[i].name %></td>
+            <td><%= pageCountMessage[i].school %></td>
+          </tr>
+      <% } } else { %>
+        <span class="code" id="count-value">No database configured</span>
+        </p>
+      <%} %>
+    </tbody>
+  </table>
+</section>
+
+<footer>
+  <div class="logo"><a href="https://www.openshift.com/"></a></div>
+</footer>
+
 </body>
 </html>
