@@ -220,10 +220,10 @@ pre {
           </hgroup>
 
                 <h2>Request information</h2>
-                <p>Page view count:
                 <% if (pageCountMessage) { %>
-                   <span class="code" id="count-value"><%=pageCountMessage[0].name%></span>
-                   </p>
+                    <% for(var i=0; i<pageCountMessage.length; i++) {%>
+                      <li><%= pageCountMessage[i]name %></li>
+                    <% } %>
                 <% } else { %>
                    <span class="code" id="count-value">No database configured</span>
                    </p>
