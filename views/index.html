@@ -223,8 +223,7 @@ pre {
                 <% if (pageCountMessage) { %>
                     <% for(var i=0; i < pageCountMessage.length; i++) {%>
                       <li><%= pageCountMessage[i]name %></li>
-                    <% } %>
-                <% } else { %>
+                <% } } else { %>
                    <span class="code" id="count-value">No database configured</span>
                    </p>
                 <%} %>
