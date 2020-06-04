@@ -240,7 +240,7 @@ pre {
       <% if (pageCountMessage) { %>
         <% for(var i=0; i < pageCountMessage.length; i++) {%>
           <tr>
-            <th scope="row">i</th>
+            <th scope="row"><%= i %></th>
             <td><%= pageCountMessage[i].name %></td>
             <td><%= pageCountMessage[i].school %></td>
           </tr>
